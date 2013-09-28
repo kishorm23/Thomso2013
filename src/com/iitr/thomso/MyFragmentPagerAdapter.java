@@ -23,27 +23,27 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter{
 		
 			/** Android tab is selected */
 			case 0:
-				Day0 appleaFragment = new Day0();
+				Day0 day0Fragment = new Day0();
 				data.putInt("current_page", arg0+1);
-				appleaFragment.setArguments(data);
-				return appleaFragment;	
+				day0Fragment.setArguments(data);
+				return day0Fragment;	
 				
 			/** Apple tab is selected */
 			case 1:
-				Day1 appleFragment = new Day1();
+				Day1 day1Fragment = new Day1();
 				data.putInt("current_page", arg0+1);
-				appleFragment.setArguments(data);
-				return appleFragment;	
+				day1Fragment.setArguments(data);
+				return day1Fragment;	
 			case 2:
-				Day2 apple2Fragment = new Day2();
+				Day2 day2Fragment = new Day2();
 				data.putInt("current_page", arg0+1);
-				apple2Fragment.setArguments(data);
-				return apple2Fragment;	
+				day2Fragment.setArguments(data);
+				return day2Fragment;	
 			case 3:
-				Day3 apple3Fragment = new Day3();
+				Day3 day3Fragment = new Day3();
 				data.putInt("current_page", arg0+1);
-				apple3Fragment.setArguments(data);
-				return apple3Fragment;
+				day3Fragment.setArguments(data);
+				return day3Fragment;
 		}
 		
 		return null;
