@@ -1,24 +1,39 @@
 package com.iitr.thomso;
 
-import com.actionbarsherlock.app.SherlockActivity;
+import android.support.v4.app.FragmentTransaction;
+import android.view.View;
+import android.view.View.OnClickListener;
 
-import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
+import com.actionbarsherlock.app.*;
+import com.actionbarsherlock.app.ActionBar.Tab;
 
-public class MainActivity extends SherlockActivity {
+
+public class MainActivity extends SherlockListFragment implements ActionBar.TabListener,OnClickListener
+{
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_main, menu);
-		return true;
+	public void onTabSelected(Tab tab, FragmentTransaction ft) {
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
+	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onTabReselected(Tab tab, FragmentTransaction ft) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 }
