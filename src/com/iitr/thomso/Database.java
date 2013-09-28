@@ -14,8 +14,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 		public static final String NAME = "_name";
 		public static final String VENUE = "_venue";
 		public static final String TIME = "_time";
-		public static final String LOCATION = "_location";
-		public static final String COMMENTS = "_comments";
+		public static final String LATTITUDE = "_lat";
+		public static final String LONGITUDE = "_lon";
+		public static final String COMMENTS = "_comments";//// COMMENTS INCLUDES DESCRIPTION AND CONTACTS OF COORDINATERS 
 		private static final String AMT_DB = "AMOUNTDB";
 		private static final String TABLE0 = "DAY0";
 		private static final String TABLE1 = "DAY1";
@@ -41,28 +42,32 @@ import android.database.sqlite.SQLiteOpenHelper;
 						+ " INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME
 						+ " TEXT NOT NULL, "  + VENUE
 						+ " TEXT NOT NULL, " + TIME
-						+ " TEXT NOT NULL, " + LOCATION
+						+ " TEXT NOT NULL, " + LATTITUDE
+						+ " TEXT NOT NULL, " + LONGITUDE
 						+ " TEXT NOT NULL, " + COMMENTS
 						+ " TEXT NOT NULL); ");
 				db.execSQL("CREATE TABLE " + TABLE1 + "(" + ROWID
 						+ " INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME
 						+ " TEXT NOT NULL, "  + VENUE
 						+ " TEXT NOT NULL, " + TIME
-						+ " TEXT NOT NULL, " + LOCATION
+						+ " TEXT NOT NULL, " + LATTITUDE
+						+ " TEXT NOT NULL, " + LONGITUDE
 						+ " TEXT NOT NULL, " + COMMENTS
 						+ " TEXT NOT NULL); ");
 				db.execSQL("CREATE TABLE " + TABLE2 + "(" + ROWID
 						+ " INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME
 						+ " TEXT NOT NULL, "  + VENUE
 						+ " TEXT NOT NULL, " + TIME
-						+ " TEXT NOT NULL, " + LOCATION
+						+ " TEXT NOT NULL, " + LATTITUDE
+						+ " TEXT NOT NULL, " + LONGITUDE
 						+ " TEXT NOT NULL, " + COMMENTS
 						+ " TEXT NOT NULL); ");
 				db.execSQL("CREATE TABLE " + TABLE3 + "(" + ROWID
 						+ " INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME
 						+ " TEXT NOT NULL, "  + VENUE
 						+ " TEXT NOT NULL, " + TIME
-						+ " TEXT NOT NULL, " + LOCATION
+						+ " TEXT NOT NULL, " + LATTITUDE
+						+ " TEXT NOT NULL, " + LONGITUDE
 						+ " TEXT NOT NULL, " + COMMENTS
 						+ " TEXT NOT NULL); ");
 
@@ -101,7 +106,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 			maker.close();
 		}
 
-		public long createEntry(String table_num,String name, String venue,String time,String location,String comments)
+		public long createEntry(String table_num,String name, String venue,String time,String lattitude,String longitude,String comments)
 				{
 			// TODO Auto-generated method stub
 
@@ -109,13 +114,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 			cv.put(NAME, name);
 			cv.put(VENUE, venue);
 			cv.put(TIME, time);
-			cv.put(LOCATION, location);
+			cv.put(LATTITUDE, lattitude);
+			cv.put(LONGITUDE, longitude);
 			cv.put(COMMENTS, comments);
 			return database.insert("TABLE"+table_num, null, cv);
 
 		}
 
-		public void updateEntry(String table_num,String name, String venue,String time,String location,String comments)
+		public void updateEntry(String table_num,String name, String venue,String time,String lattitude,String longitude,String comments)
 				throws CursorIndexOutOfBoundsException {
 			// TODO Auto-generated method stub
 
@@ -125,9 +131,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 			cv.put(NAME,name );
 			cv.put(VENUE,venue );
 			cv.put(TIME,time );
-			cv.put(LOCATION,location );
+			cv.put(LATTITUDE,lattitude );
+			cv.put(LONGITUDE,longitude );
 			cv.put(COMMENTS,comments );
-			database.update("TABLE"+table_num, cv, NAME + " = \'" + name + "\'," + VENUE + " = \'" + venue + "\'" + TIME + " = \'" + time + "\'" + LOCATION + " = \'" + location + "\'" + COMMENTS + " = \'" + comments + "\'", null);
+			database.update("TABLE"+table_num, cv, NAME + " = \'" + name + "\'," + VENUE + " = \'" + venue + "\'," + TIME + " = \'" + time + "\'," + LATTITUDE + " = \'" + lattitude + "\'," + LONGITUDE +" = \'" + longitude + "\'," + COMMENTS + " = \'" + comments + "\'", null);
 
 		}
 
@@ -135,7 +142,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 		public String getDataOfday(String table_num) {
 
 			// TODO Auto-generated method stub
-			String[] columns = new String[] { ROWID, NAME, VENUE,TIME,LOCATION };
+			String[] columns = new String[] { ROWID, NAME, VENUE,TIME,LATTITUDE,LONGITUDE };
 			Cursor c = database.query("TABLE"+table_num, columns, null, null, null, null, null);
 			String result = "";
 
