@@ -25,13 +25,13 @@
                 android:text="THOMSO'12 EVENTS\n"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <TextView>
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-               <!--  android:text="Click on Thomso button to launch the applications.\n\nChoose &apos;Upcoming Events&apos; Tab to see Upcoming Events.\n\nChoose &apos;Events By Venue&apos; Tab to browse events by their venue.\n\nChoose &apos;Map&apos; Tab to see IITR&apos;s Map.\n\nTap on Events to see their Description.\n\nPress &apos;Menu&apos; button for more options like-Toggle View, Update Database and Search Place."  -->
+                android:paddingRight="5dp">
+                <!-- android:text="Click on Thomso button to launch the applications.\n\nChoose &apos;Upcoming Events&apos; Tab to see Upcoming Events.\n\nChoose &apos;Events By Venue&apos; Tab to browse events by their venue.\n\nChoose &apos;Map&apos; Tab to see IITR&apos;s Map.\n\nTap on Events to see their Description.\n\nPress &apos;Menu&apos; button for more options like-Toggle View, Update Database and Search Place.">   -->
         	</TextView>
         </LinearLayout>
     </ScrollView>
