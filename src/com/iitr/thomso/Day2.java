@@ -24,9 +24,7 @@ import com.actionbarsherlock.app.SherlockListFragment;
 @SuppressLint("ValidFragment")
 public class Day2 extends SherlockListFragment {
 	
-	//Retrieve from database
-	String eventName[]={""} , eventTime[]={""} 
-	, eventVenue[]={""};
+	String[][] Data;
 	
 	
 	@Override
@@ -46,7 +44,7 @@ public class Day2 extends SherlockListFragment {
 		catch(SQLException sqle){
 				throw sqle;
 			}
-		String[][] Data=myDbHelper.getEventbyDay(2);
+		 Data=myDbHelper.getEventbyDay(2);
 		
 		for(int i=0;i<Data.length;i++){
             HashMap<String, String> hm = new HashMap<String,String>();
@@ -81,7 +79,7 @@ public class Day2 extends SherlockListFragment {
 	            @Override
 	            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long id) {
 	                Toast.makeText( getActivity().getBaseContext()  , "Clicked " +
-	                				eventName[position] , Toast.LENGTH_SHORT).show();
+	                				Data[position][2] , Toast.LENGTH_SHORT).show();
 	               
 	            }
 	        };

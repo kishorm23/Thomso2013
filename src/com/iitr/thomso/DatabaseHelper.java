@@ -108,10 +108,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public String[][] getEventbyDay(int Day)
 	{
 		SQLiteDatabase db=this.getReadableDatabase();
-		Cursor cursor = db.query(TABLE_NAME, new String[] { KEY_ID,
+		/*Cursor cursor = db.query(TABLE_NAME, new String[] { KEY_ID,
 				KEY_DAY,KEY_EVENT_NAME,KEY_VENUE,KEY_START_TIME,
 				KEY_END_TIME,KEY_DESCRIPTION,KEY_COORDI,KEY_DATE,KEY_TYPE}, KEY_DAY + "=?",
-				new String[] { String.valueOf(Day) }, null, null, null, null);
+				new String[] { String.valueOf(Day) }, null, null, null, null);*/
+		Cursor cursor=db.rawQuery("SELECT * FROM table_details WHERE day='"+Day+"' ORDER BY  start_time",null);
 		String data[][] = new String[cursor.getCount()][cursor.getColumnCount()];
 
 		if (cursor != null) {
