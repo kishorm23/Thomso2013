@@ -1,10 +1,7 @@
 package com.iitr.thomso;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-
-
-
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
@@ -127,14 +124,12 @@ public class MainActivity extends SherlockFragmentActivity {
     			          .show();
     		   break;
     	   case R.id.menu_instructions :
-    		   Toast.makeText(MainActivity.this,
-    	    			 "instuctions.", Toast.LENGTH_LONG)
-    	    			 .show();
+    		   Intent intent_ins = new Intent(MainActivity.this , Instructions.class);
+    		   startActivity(intent_ins);
     		   break;
     	   case R.id.menu_aboutUs :  
-    		   Toast.makeText(MainActivity.this,
-    	    			 "about us clicked.", Toast.LENGTH_LONG)
-    	    			 .show();
+    		   Intent intent_abt = new Intent(MainActivity.this , AboutUs.class);
+    		   startActivity(intent_abt);
     		   break;
     	   }
  
