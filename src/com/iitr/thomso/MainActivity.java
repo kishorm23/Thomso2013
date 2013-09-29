@@ -124,13 +124,12 @@ public class MainActivity extends SherlockFragmentActivity {
     			          .show();
     		   break;
     	   case R.id.menu_instructions :
-    		   Toast.makeText(MainActivity.this,
-    	    			 "instuctions.", Toast.LENGTH_LONG)
-    	    			 .show();
+    		   Intent intent_ins = new Intent(MainActivity.this , Instructions.class);
+    		   startActivity(intent_ins);
     		   break;
     	   case R.id.menu_aboutUs :  
-    		   Intent intent = new Intent(MainActivity.this , AboutUs.class);
-    		   startActivity(intent);
+    		   Intent intent_abt = new Intent(MainActivity.this , AboutUs.class);
+    		   startActivity(intent_abt);
     		   break;
     	   }
  
