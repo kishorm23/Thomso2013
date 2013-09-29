@@ -49,8 +49,8 @@ public class Day1 extends SherlockListFragment {
 		for(int i=0;i<Data.length;i++){
             HashMap<String, String> hm = new HashMap<String,String>();
             hm.put("name", "" + Data[i][2]);
-            hm.put("venue","" + Data[i][3]);
-            hm.put("time","" + Data[i][4] );
+            hm.put("venue","" + "Venue: "+Data[i][3]);
+            hm.put("time","" + "Starts at: " + Data[i][4] );
             eventList.add(hm);
             
             // Keys used in Hashmap
