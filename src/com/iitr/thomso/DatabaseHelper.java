@@ -1,10 +1,10 @@
 package com.iitr.thomso;
 
 import java.io.FileOutputStream;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -20,17 +20,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	private SQLiteDatabase myDataBase; 
 	private final Context myContext;
 	
-	private static final String TABLE_NAME = "table_details";
-	private static final String KEY_ID = "id";
-	private static final String KEY_DAY = "day";
-	private static final String KEY_EVENT_NAME = "event_name";
-	private static final String KEY_VENUE = "venue";
-	private static final String KEY_START_TIME = "start_time";
-	private static final String KEY_END_TIME = "end_time";
-	private static final String KEY_DESCRIPTION = "description";
-	private static final String KEY_COORDI = "coordinators";
-	private static final String KEY_DATE = "date";
-	private static final String KEY_TYPE = "type";
+//	private static final String TABLE_NAME = "table_details";
+//	private static final String KEY_ID = "id";
+//	private static final String KEY_DAY = "day";
+//	private static final String KEY_EVENT_NAME = "event_name";
+//	private static final String KEY_VENUE = "venue";
+//	private static final String KEY_START_TIME = "start_time";
+//	private static final String KEY_END_TIME = "end_time";
+//	private static final String KEY_DESCRIPTION = "description";
+//	private static final String KEY_COORDI = "coordinators";
+//	private static final String KEY_DATE = "date";
+//	private static final String KEY_TYPE = "type";
 
 	
 	public DatabaseHelper(Context context) {

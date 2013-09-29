@@ -1,14 +1,13 @@
 package com.iitr.thomso;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
 
 import java.util.HashMap;
 import java.util.List;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
 import android.database.SQLException;
 import android.os.Bundle;
 import android.view.LayoutInflater;

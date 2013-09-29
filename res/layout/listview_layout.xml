@@ -8,7 +8,11 @@
             android:id="@+id/eName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:textSize="23sp" 
+=======
+            android:textSize="20sp" 
+>>>>>>> 5645a6b2b477545ca9e08527b1cd15bf5bdf2c93
             android:paddingLeft="5dp"
             android:paddingTop="2dp"
             />
