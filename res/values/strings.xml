@@ -4,5 +4,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">Thomso - 2013</string>
+    <string name="map">Map</string>
+    <string name="instructions">Instructions</string>
+    <string name="aboutUs">About Us</string>
 
 </resources>

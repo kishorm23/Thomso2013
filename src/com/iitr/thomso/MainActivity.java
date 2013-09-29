@@ -2,16 +2,20 @@ package com.iitr.thomso;
 
 import android.os.Bundle;
 
+
+
+
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.widget.Toast;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.ActionBar.Tab;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
-import com.actionbarsherlock.view.SubMenu;
 
 
 public class MainActivity extends SherlockFragmentActivity {
@@ -106,43 +110,37 @@ public class MainActivity extends SherlockFragmentActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-		SubMenu map = menu.addSubMenu("Map");
-		map.getItem().setShowAsAction(
-				MenuItem.SHOW_AS_ACTION_NEVER);
-		SubMenu instructions = menu.addSubMenu("Instructions");
-		instructions.getItem().setShowAsAction(
-				MenuItem.SHOW_AS_ACTION_NEVER);
-		SubMenu aboutUs = menu.addSubMenu("About Us");
-		aboutUs.getItem().setShowAsAction(
-				MenuItem.SHOW_AS_ACTION_NEVER);
-		
-		return true;	
+    MenuInflater inflater = getSherlock().getMenuInflater();
+        inflater.inflate(R.menu.activity_main,  menu);
+        return true;		
+			
     }
     
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//    	 
-//        super.onOptionsItemSelected(item);
-// 
-//        switch(item.getItemId()){
-//        
-//        case R.id.menu_map :
-//        	
-//        	break;
-//        	
-//        case R.id.menu_instructions :
-//        	
-//        	break;
-//        	
-//        case R.id.menu_aboutUs :
-//        	
-//        	break;
-//        
-//        	
-//       
-//        }
-//        return true;
-// 
-//    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+    	   super.onOptionsItemSelected(item);
+    	   
+    	   switch(item.getItemId())
+    	   {
+    	   case R.id.menu_map :
+    		 Toast.makeText(MainActivity.this,
+    			          "Map menu clicked.", Toast.LENGTH_LONG)
+    			          .show();
+    		   break;
+    	   case R.id.menu_instructions :
+    		   Toast.makeText(MainActivity.this,
+    	    			 "instuctions.", Toast.LENGTH_LONG)
+    	    			 .show();
+    		   break;
+    	   case R.id.menu_aboutUs :  
+    		   Toast.makeText(MainActivity.this,
+    	    			 "about us clicked.", Toast.LENGTH_LONG)
+    	    			 .show();
+    		   break;
+    	   }
+ 
+        return true;
+ 
+    }
     
     
 }
