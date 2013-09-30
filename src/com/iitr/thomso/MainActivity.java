@@ -1,10 +1,15 @@
 package com.iitr.thomso;
 
+import java.util.List;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.widget.ArrayAdapter;
+import android.widget.SimpleAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.actionbarsherlock.app.ActionBar;
@@ -19,6 +24,7 @@ public class MainActivity extends SherlockFragmentActivity {
 	ActionBar mActionBar;
 	ViewPager mPager;
 	
+	Spinner spinner;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,6 +108,15 @@ public class MainActivity extends SherlockFragmentActivity {
                        .setTabListener(tabListener);                               
 
         mActionBar.addTab(tab); 
+        /*String[] spinnerValues={"1","2","3","4"};
+        ArrayAdapter<String> adapterEvents = new ArrayAdapter<String>(
+				getApplication().getApplicationContext(), android.R.layout.select_dialog_singlechoice,
+				spinnerValues);
+		adapterEvents
+				.setDropDownViewResource(R.layout.spinner_xml);
+
+		spinner.setAdapter(adapterEvents);
+*/		//spinnerMap.setAdapter(adapterEvents);
         
     }
 
@@ -131,11 +146,16 @@ public class MainActivity extends SherlockFragmentActivity {
     		   Intent intent_abt = new Intent(MainActivity.this , AboutUs.class);
     		   startActivity(intent_abt);
     		   break;
+    	  case R.id.filter :  
+    		   Intent intent_fltr = new Intent(MainActivity.this , Filter.class);
+    		   startActivity(intent_fltr);
+    		   break;
     	   }
  
         return true;
  
     }
+
     
     
 }

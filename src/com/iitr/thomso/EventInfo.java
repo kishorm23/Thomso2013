@@ -7,12 +7,10 @@ import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.Button;
 
-public class EventInfo extends Activity implements OnClickListener{
+public class EventInfo extends Activity {
 	
 	
 	
-	Button showOnMap;
-
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -21,20 +19,17 @@ public class EventInfo extends Activity implements OnClickListener{
 		WindowManager.LayoutParams params = getWindow().getAttributes();
 		params.width = WindowManager.LayoutParams.MATCH_PARENT;
 		EventInfo.this.getWindow().setAttributes(params);
-		showOnMap = (Button) findViewById(R.id.callMap);
+		Bundle b = getIntent().getExtras();
+		
+		String event_name=b.getString("event_name");
+		String venue = b.getString("venue");
+		String description = b.getString("description");
+		String time = b.getString("time");
+		String coordinators = b.getString("coordinators");
+    	
 	}
-
-	@Override
-	public void onClick(View v) {
-		switch(v.getId()){
-		
-		case R.id.callMap :
-			//write your function here
-			
-		
-		}
-		
-	}
-			
 
 }
+			
+
+

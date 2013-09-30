@@ -3,19 +3,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
-    
-     <TextView
-        android:id="@+id/textview"
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <RadioButton
+            android:id="@+id/radio0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="All" />
+
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pronight" />
+
+        <RadioButton
+            android:id="@+id/radio2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Competition" />
+        
+        <RadioButton
+            android:id="@+id/radio3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Workshop" />
+        
+        <RadioButton
+            android:id="@+id/radio4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Street performance" />
+        
+        <RadioButton
+            android:id="@+id/radio5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show/Lecture" />
+        
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-    />
- 
-    <ListView
-        android:id="@+id/listview"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-    />
-    
+        android:text="Done" />
 
 </LinearLayout>
