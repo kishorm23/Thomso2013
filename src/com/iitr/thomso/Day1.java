@@ -51,14 +51,17 @@ public class Day1 extends SherlockListFragment {
 		if(dataReturned=="All") Data = myDbHelper.getEventbyDay(1);
 		else Data = myDbHelper.getEventbyType(dataReturned, 1);
 		
+		if(Data.length!=0)
+		{
 		for(int i=0;i<Data.length;i++){
 			String x=Data[i][4];
 			Log.i("DEBUG_TIME","Current Event:"+Data[i][2]);
 			x=ConvertTo(Data[i][4]);
+			if(Data[i][5]!=null) x=x+" - "+ConvertTo(Data[i][5]);
             HashMap<String, String> hm = new HashMap<String,String>();
             hm.put("name", "" + Data[i][2]);
             hm.put("venue","" + "Venue: "+Data[i][3]);
-            hm.put("time","" + "Starts at: " + x );
+            hm.put("time","" +  x );
             eventList.add(hm);
             
             // Keys used in Hashmap
@@ -75,6 +78,29 @@ public class Day1 extends SherlockListFragment {
             // Setting the adapter to the listView
             setListAdapter(adapter);   
         }
+		}
+		else
+		{
+			 HashMap<String, String> hm = new HashMap<String,String>();
+	            hm.put("name", "");
+	            hm.put("venue","" + "No events in this catagory");
+	            hm.put("time","" +  "" );
+	            eventList.add(hm);
+	            
+	            // Keys used in Hashmap
+	            String[] from = { "name","venue","time" };
+	     
+	            //Ids of views in listview_layout
+	            int[] to = { R.id.eName,R.id.eVenue,R.id.eTime};
+	            
+	            // Instantiating an adapter to store each items
+	            // R.layout.listview_layout defines the layout of each item
+	            SimpleAdapter adapter = new SimpleAdapter(getActivity().getBaseContext(), 
+	            				eventList, R.layout.listview_layout, from, to);
+	     
+	            // Setting the adapter to the listView
+	            setListAdapter(adapter);   
+		}
 		return super.onCreateView(inflater, container, savedInstanceState); 
 	}
 	
@@ -98,6 +124,7 @@ public class Day1 extends SherlockListFragment {
 	 
 		public String ConvertTo(String time)
 		{
+			if(time.length()==0) return null;
 			if(time.length()==4) time="0"+time;
 			String hours = (String) time.subSequence(0, 2);
 			String minutes = (String) time.subSequence(3, 5);

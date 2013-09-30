@@ -149,6 +149,7 @@ public class MainActivity extends SherlockFragmentActivity {
     	  case R.id.filter :  
     		   Intent intent_fltr = new Intent(MainActivity.this , Filter.class);
     		   startActivity(intent_fltr);
+    		   finish();
     		   break;
     	   }
  
