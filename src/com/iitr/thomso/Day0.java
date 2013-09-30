@@ -48,8 +48,14 @@ public class Day0 extends SherlockListFragment {
 			}
 		somedata = getSherlockActivity().getSharedPreferences(radio, 0);
 		String dataReturned = somedata.getString("filter", "All");
+<<<<<<< HEAD
 		if(dataReturned!="All") Data = myDbHelper.getEventbyType(dataReturned, 0);
 		else Data = myDbHelper.getEventbyDay(0);
+=======
+		if(dataReturned=="All") Data = myDbHelper.getEventbyDay(0);
+		else Data = myDbHelper.getEventbyType(dataReturned, 0);
+		
+>>>>>>> 26ebea8c2de43e16ad2399d25bae2c578db9137d
 		if(Data.length!=0)
 		{
 		for(int i=0;i<Data.length;i++){

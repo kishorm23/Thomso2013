@@ -134,9 +134,11 @@ public class MainActivity extends SherlockFragmentActivity {
     	   switch(item.getItemId())
     	   {
     	   case R.id.menu_map :
-    		 Toast.makeText(MainActivity.this,
+    		   Intent intent_map = new Intent(MainActivity.this , Mapview.class);
+    		   startActivity(intent_map);
+    		/* Toast.makeText(MainActivity.this,
     			          "Map menu clicked.", Toast.LENGTH_LONG)
-    			          .show();
+    			          .show();*/
     		   break;
     	   case R.id.menu_instructions :
     		   Intent intent_ins = new Intent(MainActivity.this , Instructions.class);
@@ -149,6 +151,10 @@ public class MainActivity extends SherlockFragmentActivity {
     	  case R.id.filter :  
     		   Intent intent_fltr = new Intent(MainActivity.this , Filter.class);
     		   startActivity(intent_fltr);
+<<<<<<< HEAD
+=======
+    		   finish();
+>>>>>>> 26ebea8c2de43e16ad2399d25bae2c578db9137d
     		   break;
     	   }
  
