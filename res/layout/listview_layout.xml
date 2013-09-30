@@ -2,8 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-    
+    android:orientation="vertical" 
+    android:id = "@+id/llinear">
+
     <TextView 
             android:id="@+id/eName"
             android:layout_width="wrap_content"
@@ -12,14 +13,13 @@
             android:paddingLeft="5dp"
             android:paddingTop="2dp"
             />
-    
 
- 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-    >
+   <LinearLayout 
+       android:orientation="horizontal"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       >
+    
         <TextView
             android:id="@+id/eVenue"
             android:layout_width="wrap_content"
@@ -38,6 +38,5 @@
             android:gravity="right"
             android:paddingRight="5dp"
         />
-    </LinearLayout>
-
+	</LinearLayout>
 </LinearLayout>

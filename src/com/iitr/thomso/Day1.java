@@ -10,6 +10,7 @@ import java.util.List;
 import android.annotation.SuppressLint;
 import android.database.SQLException;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +47,7 @@ public class Day1 extends SherlockListFragment {
 		Data=myDbHelper.getEventbyDay(1);
 		
 		for(int i=0;i<Data.length;i++){
+			//String x = ConvertTo(Data[i][4]);
             HashMap<String, String> hm = new HashMap<String,String>();
             hm.put("name", "" + Data[i][2]);
             hm.put("venue","" + "Venue: "+Data[i][3]);
@@ -86,5 +88,26 @@ public class Day1 extends SherlockListFragment {
 	        getListView().setOnItemClickListener(listener);
 	 
 	    }
+	 
+		public String ConvertTo(String time)
+		{
+			String hours = (String) time.subSequence(0, 2);
+			String minutes = (String) time.subSequence(3, 5);
+			
+			
+			int hour = Integer.parseInt(hours);
+			int minute = Integer.parseInt(minutes);
+			
+			String toReturn;
+			if(hour>12) toReturn=String.valueOf(hour-12);
+			else if(hour<10) toReturn = "0"+hour;
+			else toReturn=hours;
+			if(minute<10) toReturn=toReturn+":"+"0"+minute;
+			else toReturn=toReturn+":"+minute;
+			if(hour>12) toReturn = toReturn + " PM";
+			else toReturn=toReturn+"AM";
+			Log.i("DEBUG_TIME","hour: "+hour+" minutes: "+minutes+" Converted String: "+toReturn);
+			return toReturn;
+		}
 	
 }
