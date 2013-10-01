@@ -156,32 +156,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	    return data;
 		
 	}
-	
-	public String[][] getReducedEvent(String time, String type,int Day)
-	{
-		SQLiteDatabase db=this.getReadableDatabase();
-		Cursor cursor = null;
-		if(type!="All") cursor=db.rawQuery("SELECT * FROM table_details WHERE day='"+Day+"' AND end_time>'"+time+"' AND type='"+type+"'",null);
-		else cursor=db.rawQuery("SELECT * FROM table_details WHERE day='"+Day+"' AND end_time>'"+time+"'",null);
-		String data[][] = new String[cursor.getCount()][cursor.getColumnCount()];
-
-		if (cursor != null) {
-			Log.i("DEBUG","Coloumn count :"+cursor.getColumnCount());
-	        int i = 0;
-	        while (cursor.moveToNext()) {
-	            int j = 0;
-	            while (j < cursor.getColumnCount()) {
-	                data[i][j] = cursor.getString(j);
-	                Log.i("DEBUG","data["+i+"]["+j+"]: "+data[i][j]);
-	                j++;
-	            }
-	            i++;
-	        }
-	        cursor.close();
-	    }
-	    return data;
-		
-	}
 	    
 	@Override
 	public void onCreate(SQLiteDatabase db) {

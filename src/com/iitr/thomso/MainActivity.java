@@ -51,9 +51,9 @@ public class MainActivity extends SherlockFragmentActivity {
         	}
         	
         };
+        
         /** Setting the pageChange listner to the viewPager */
         mPager.setOnPageChangeListener(pageChangeListener);
-
         
         /** Creating an instance of FragmentPagerAdapter */
         MyFragmentPagerAdapter fragmentPagerAdapter = new MyFragmentPagerAdapter(fm);
@@ -135,7 +135,7 @@ public class MainActivity extends SherlockFragmentActivity {
     	   {
     	   case R.id.menu_map :
     		   //Intent intent_map = new Intent(MainActivity.this , Mapview.class);
-    		 //  startActivity(intent_map);
+    		   //startActivity(intent_map);
     		/* Toast.makeText(MainActivity.this,
     			          "Map menu clicked.", Toast.LENGTH_LONG)
     			          .show();*/
@@ -151,13 +151,13 @@ public class MainActivity extends SherlockFragmentActivity {
     	  case R.id.filter :  
     		   Intent intent_fltr = new Intent(MainActivity.this , Filter.class);
     		   startActivity(intent_fltr);
+    		   finish();
     		   break;
     	   }
  
         return true;
  
     }
-
     
     
 }

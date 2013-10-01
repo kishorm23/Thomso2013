@@ -1,13 +1,13 @@
 package com.iitr.thomso;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
-import java.util.Calendar;
+
 import java.util.HashMap;
 import java.util.List;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.SQLException;
 import android.os.Bundle;
@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockListFragment;
 
@@ -45,32 +46,11 @@ public class Day2 extends SherlockListFragment {
 		catch(SQLException sqle){
 				throw sqle;
 			}
-		Calendar calender1 = Calendar.getInstance();
-		int day = calender1.get(calender1.DAY_OF_WEEK);
-		int hour = calender1.get(calender1.HOUR_OF_DAY);
-		String currTime=null;
-		hour = hour-2;
-		if(hour<0) hour=0;
-		int min = calender1.get(Calendar.MINUTE);
 		somedata = getSherlockActivity().getSharedPreferences(radio, 0);
-		String dataReturned = somedata.getString("filter", "pronites");
-		if(day==7)
-		{
-			String hours,minutes;
-			if(hour<10) hours="0"+hour;
-			else hours = ""+hour;
-			if(min<10) minutes="0"+min;
-			else minutes=""+min;
-			currTime = hours+":"+minutes;
-			Log.i("FINAL","Current: "+ currTime);
-			Data = myDbHelper.getReducedEvent(currTime,dataReturned, 2);
-			
-		}
-		else
-		{
-			if(dataReturned==null||dataReturned=="All") Data = myDbHelper.getEventbyDay(2);
-			else Data = myDbHelper.getEventbyType(dataReturned, 2);
-		}	
+		String dataReturned = somedata.getString("filter", "All");
+		if(dataReturned=="All") Data = myDbHelper.getEventbyDay(2);
+		else Data = myDbHelper.getEventbyType(dataReturned, 2);
+		
 		if(Data.length!=0)
 		{
 		for(int i=0;i<Data.length;i++){
@@ -129,24 +109,12 @@ public class Day2 extends SherlockListFragment {
 	        // TODO Auto-generated method stub
 	        super.onActivityCreated(savedInstanceState);
 	 
-        	if(Data.length==0)
-        	{
-        		getListView().setEnabled(false);
-        	}
 	        OnItemClickListener listener = new OnItemClickListener() {
 	            @Override
-	            public void onItemClick(AdapterView<?> arg0, View arg1, int i, long id) {
-	            	Bundle b = new Bundle();
-	            	b.putString("event_name", Data[i][2]);
-	            	b.putString("venue", Data[i][3]);
-	            	b.putString("description", Data[i][6]);
-	            	b.putString("time", ConvertTo(Data[i][4]) +" - "+ ConvertTo(Data[i][5]));
-	            	b.putString("coordinators",Data[i][7]);
-	            	
-	            	Intent intent =new Intent(getActivity().getBaseContext() , EventInfo.class);
-	            	intent.putExtras(b);
-	            	startActivity(intent);
-	      
+	            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long id) {
+	                Toast.makeText( getActivity().getBaseContext()  , "Clicked " +
+	                				Data[position][2] , Toast.LENGTH_SHORT).show();
+	               
 	            }
 	        };
 	 
