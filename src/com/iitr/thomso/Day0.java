@@ -1,13 +1,13 @@
 package com.iitr.thomso;
 
 import java.io.IOException;
-
 import java.util.ArrayList;
-
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.SQLException;
 import android.os.Bundle;
@@ -18,7 +18,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockListFragment;
 
@@ -46,16 +45,32 @@ public class Day0 extends SherlockListFragment {
 		catch(SQLException sqle){
 				throw sqle;
 			}
+		Calendar calender1 = Calendar.getInstance();
+		int day = calender1.get(calender1.DAY_OF_WEEK);
+		int hour = calender1.get(calender1.HOUR_OF_DAY);
+		String currTime=null;
+		hour = hour-2;
+		if(hour<0) hour=0;
+		int min = calender1.get(Calendar.MINUTE);
 		somedata = getSherlockActivity().getSharedPreferences(radio, 0);
-		String dataReturned = somedata.getString("filter", "All");
-<<<<<<< HEAD
-		if(dataReturned!="All") Data = myDbHelper.getEventbyType(dataReturned, 0);
-		else Data = myDbHelper.getEventbyDay(0);
-=======
-		if(dataReturned=="All") Data = myDbHelper.getEventbyDay(0);
-		else Data = myDbHelper.getEventbyType(dataReturned, 0);
-		
->>>>>>> 26ebea8c2de43e16ad2399d25bae2c578db9137d
+		String dataReturned = somedata.getString("filter", "pronites");
+		if(day==5)
+		{
+			String hours,minutes;
+			if(hour<10) hours="0"+hour;
+			else hours = ""+hour;
+			if(min<10) minutes="0"+min;
+			else minutes=""+min;
+			currTime = hours+":"+minutes;
+			Log.i("FINAL","Current: "+ currTime);
+			Data = myDbHelper.getReducedEvent(currTime,dataReturned, 0);
+			
+		}
+		else
+		{
+			if(dataReturned==null||dataReturned=="All") Data = myDbHelper.getEventbyDay(0);
+			else Data = myDbHelper.getEventbyType(dataReturned, 0);
+		}
 		if(Data.length!=0)
 		{
 		for(int i=0;i<Data.length;i++){
@@ -129,6 +144,12 @@ public class Day0 extends SherlockListFragment {
 	            	b.putString("description", Data[i][6]);
 	            	b.putString("time", ConvertTo(Data[i][4]) +" - "+ ConvertTo(Data[i][5]));
 	            	b.putString("coordinators",Data[i][7]);
+	            	
+	            	Intent intent =new Intent(getActivity().getBaseContext() , EventInfo.class);
+	            	intent.putExtras(b);
+	            	startActivity(intent);
+	            	
+	            	
 	            }
 	        };
 	 

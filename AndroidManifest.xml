@@ -56,8 +56,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-=======
           <activity
             android:name=".Mapview"
                android:label="@string/app_name"  
@@ -71,7 +69,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
->>>>>>> 26ebea8c2de43e16ad2399d25bae2c578db9137d
          
                <activity
             android:name=".Filter" 

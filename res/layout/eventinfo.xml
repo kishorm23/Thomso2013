@@ -1,26 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
-    
-  <!--   <ImageView 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src=""/> -->
-    
-    <TextView 
-        android:id="@+id/tv_event"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="working !!"/>
-    
-    <Button 
-        android:id="@+id/callMap"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Show on Map"
-        android:onClick="showMap"/>"
-    
+    android:layout_height="match_parent" >
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingTop="1dp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        <TextView
+            android:id="@+id/textVenue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+        <TextView
+            android:id="@+id/textTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+
+
+        <ImageView
+            android:id="@+id/image1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:maxHeight="40dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:autoLink="all"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" />
+
+        <TextView
+            android:id="@+id/textCoordinators"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:autoLink="all"
+            android:paddingLeft="5dp"
+            android:paddingRight="2dp" />
+    </LinearLayout>
+
+</ScrollView>
